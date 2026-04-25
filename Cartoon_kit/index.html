@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartoon Bundle - Hindi Cartoon Videos</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e31e24;
+    --dark-red: #b71c1c;
+    --light-red: #ff5252;
+    --white: #ffffff;
+    --off-white: #fff8f8;
+    --light-gray: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --text-gray: #555;
+    --yellow: #FFD600;
+    --green: #22c55e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hind', sans-serif; background: var(--white); color: var(--text-dark); }
+
+  /* STICKY BUY BAR */
+  .sticky-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--red); color: white;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    padding: 10px 20px; z-index: 999; box-shadow: 0 -3px 12px rgba(0,0,0,0.2);
+  }
+  .sticky-bar .price-block { text-align: center; line-height: 1.1; }
+  .sticky-bar .price-main { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; font-weight: 800; }
+  .sticky-bar .price-old { font-size: 0.85rem; text-decoration: line-through; opacity: 0.8; }
+  .sticky-bar .offer-label { font-size: 0.7rem; background: var(--yellow); color: #111; padding: 2px 7px; border-radius: 4px; font-weight: 700; }
+  .sticky-bar .buy-btn-sticky {
+    background: var(--yellow); color: #111;
+    border: none; border-radius: 6px; padding: 10px 28px;
+    font-family: 'Baloo 2', sans-serif; font-size: 1.05rem; font-weight: 800;
+    cursor: pointer; white-space: nowrap; text-decoration: none;
+  }
+
+  /* TOP BAR */
+  .top-bar { background: var(--red); color: white; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.3px; }
+
+  /* HERO */
+  .hero { background: #fff; padding: 36px 20px 20px; text-align: center; }
+  .hero h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+    font-weight: 800; line-height: 1.35; color: var(--text-dark);
+    max-width: 750px; margin: 0 auto 10px;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero .sub {
+    font-size: clamp(1rem, 3vw, 1.2rem); color: var(--text-gray);
+    max-width: 600px; margin: 0 auto 18px; font-weight: 500;
+  }
+  .hero-video-wrap {
+    max-width: 680px; margin: 0 auto 18px;
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 6px 24px rgba(227,30,36,0.15);
+    border: 3px solid var(--red);
+  }
+  .hero-video-wrap video { width: 100%; display: block; }
+
+  /* TRUST BADGES */
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 16px 20px; background: var(--off-white); border-top: 2px solid #f0d0d0; border-bottom: 2px solid #f0d0d0; }
+  .badge { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); text-align: left; }
+  .badge-icon { font-size: 1.6rem; }
+  .badge-text span { display: block; font-size: 0.7rem; font-weight: 800; color: var(--red); text-transform: uppercase; }
+
+  /* WHAT YOU GET */
+  .section { padding: 36px 20px; max-width: 760px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Baloo 2', sans-serif; font-size: clamp(1.3rem, 4vw, 1.8rem);
+    font-weight: 800; text-align: center; margin-bottom: 8px; color: var(--text-dark);
+  }
+  .section-title span { color: var(--red); }
+  .divider { width: 60px; height: 4px; background: var(--red); margin: 0 auto 24px; border-radius: 4px; }
+
+  .bundle-items { list-style: none; display: grid; gap: 10px; }
+  .bundle-items li {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--light-gray); border-radius: 8px; padding: 12px 16px;
+    border-left: 4px solid var(--red); font-size: 1rem; font-weight: 600;
+  }
+  .bundle-items li .check { color: var(--red); font-size: 1.3rem; flex-shrink: 0; }
+
+  /* CTA BUTTON */
+  .cta-wrap { text-align: center; padding: 10px 20px 4px; }
+  .cta-btn {
+    display: inline-block; background: var(--red);
+    color: white; text-decoration: none;
+    font-family: 'Baloo 2', sans-serif; font-size: 1.3rem; font-weight: 800;
+    padding: 16px 48px; border-radius: 8px; border: none; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(227,30,36,0.4);
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--dark-red); }
+  .cta-note { font-size: 0.78rem; color: var(--text-gray); margin-top: 6px; text-align: center; }
+
+  /* SAMPLE VIDEOS */
+  .videos-section { background: var(--off-white); padding: 36px 20px; }
+  .videos-section .section-title { max-width: 760px; margin: 0 auto 8px; }
+  .videos-section .divider { margin-bottom: 24px; }
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 860px; margin: 0 auto; }
+  .video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.08); border: 2px solid #f0d0d0; }
+  .video-card video { width: 100%; display: block; }
+  .video-card p { padding: 8px 12px; font-size: 0.85rem; font-weight: 600; color: var(--text-gray); }
+
+  /* REVIEWS */
+  .reviews-section { padding: 36px 20px; max-width: 900px; margin: 0 auto; }
+  .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .review-card { border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1); border: 2px solid #f0d0d0; }
+  .review-card img { width: 100%; display: block; }
+
+  /* FAQ */
+  .faq-section { background: var(--off-white); padding: 36px 20px; }
+  .faq-wrap { max-width: 720px; margin: 0 auto; display: grid; gap: 10px; }
+  .faq-item { background: white; border-radius: 8px; border: 1px solid #f0d0d0; overflow: hidden; }
+  .faq-q {
+    padding: 14px 18px; font-weight: 700; font-size: 0.97rem;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    color: var(--text-dark);
+  }
+  .faq-q:hover { background: #fff0f0; }
+  .faq-q .arrow { color: var(--red); font-size: 1.1rem; transition: transform 0.2s; }
+  .faq-a { padding: 0 18px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.2s; font-size: 0.93rem; color: var(--text-gray); line-height: 1.7; }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 18px 14px; }
+  .faq-item.open .arrow { transform: rotate(180deg); }
+
+  /* FOOTER */
+  footer { background: var(--text-dark); color: #ccc; text-align: center; padding: 24px 20px; font-size: 0.8rem; line-height: 1.8; }
+  footer a { color: #f0d0d0; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .disclaimer { margin-top: 10px; font-size: 0.72rem; opacity: 0.6; }
+
+  /* MOBILE PAD */
+  @media (max-width: 500px) {
+    .sticky-bar { flex-wrap: wrap; gap: 8px; }
+    .video-grid { grid-template-columns: 1fr 1fr; }
+    .review-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">🔥 Limited Time Offer – सिर्फ ₹197 में 2000+ Cartoon Videos पाओ!</div>
+
+<!-- ──────────────── HERO ──────────────── -->
+<section class="hero">
+  <div class="hero-badge">🎬 CARTOON KIT 2026</div>
+  <h1>No Camera, No Face, No Editing – YouTube पर Cartoon Videos डालो और हर महीने <span class="highlight">1–2 लाख कमाओ 💸</span></h1>
+  <h2>No Face, No Editing, YouTube पर Cartoon Videos डालो और महीने <span class="highlight">1–2 लाख कमाओ 💸</span></h2>
+
+  <div class="hero-video-wrap">
+    <!-- MAIN PROMO VIDEO – replace src with your link -->
+    <video controls playsinline poster="">
+      <source src="https://freshlearn-vod-src.freshlearn.com/46561/with-bgm-2-kXnpfX0bcG.mp4" type="video/mp4">
+      आपका ब्राउज़र video tag को support नहीं करता|
+    </video>
+  </div>
+  <p style="font-size:16px; font-weight:700; margin-bottom:18px; opacity:0.9;">
+    आपको Bundle में मिलेंगे <span style="color:var(--yellow); font-size:20px; font-weight:900;">2,000+ Hindi Cartoon Stories Videos</span><br>
+    <span style="font-size:13px; font-weight:600; opacity:0.8;">(100% COPYRIGHT FREE)</span>
+  </p>
+
+  <div class="cta-wrap">
+    <a href="#" class="cta-btn">Buy Now just @ ₹197/-</a>
+    <p class="cta-note" style="color:#ccc;">* Limited-time offer. Price may change.</p>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<div class="badges">
+  <div class="badge"><div class="badge-icon">💰</div><div class="badge-text"><span>30-DAYS MONEY</span>BACK GUARANTEED</div></div>
+  <div class="badge"><div class="badge-icon">🆕</div><div class="badge-text"><span>LATEST 2026</span>CARTOON BUNDLE</div></div>
+  <div class="badge"><div class="badge-icon">⏳</div><div class="badge-text"><span>LIFETIME VALIDITY</span>FREE UPDATES</div></div>
+  <div class="badge"><div class="badge-icon">💬</div><div class="badge-text"><span>CHAT SUPPORT</span>24 X 7</div></div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="section">
+  <div class="section-title">Here's What You Get <span>Inside Bundle:</span></div>
+  <div class="divider"></div>
+  <ul class="bundle-items">
+    <li><span class="check">✅</span>2000+ Animated Hindi Stories</li>
+    <li><span class="check">✅</span>4K Thumbnails Package</li>
+    <li><span class="check">✅</span>S.E.O Headlines &amp; TAGS</li>
+    <li><span class="check">✅</span>2026 YouTube Strategies</li>
+    <li><span class="check">✅</span>Lifetime Call &amp; Chat Support</li>
+  </ul>
+</div>
+<div class="cta-wrap" style="padding-bottom:32px;">
+  <a href="#" class="cta-btn">Buy Now just @ ₹197/-</a>
+  <p class="cta-note">* Limited-time offer. Price may change.</p>
+</div>
+
+<!-- SAMPLE VIDEOS -->
+<div class="videos-section">
+  <div class="section-title">👇 Check Sample <span>Bundle Videos</span> 👇</div>
+  <div class="divider"></div>
+  <div class="video-grid">
+    <div class="video-card">
+      <video controls preload="none" poster="images/img1.jpeg">
+        <source src="https://freshlearn-vod-src.freshlearn.com/46171/_-_-_-_-_-_-_-_kahani___hindi_kahaniya___bedtime_moral_stories___hindi_fairy_tales-720p_hd-1-720p-XlSxhT3vyC.mp4" type="video/mp4">
+      </video>
+      <p>Sample Video 1</p>
+    </div>
+    <div class="video-card">
+      <video controls preload="none" poster="images/img2.jpeg">
+        <source src="https://freshlearn-vod-src.freshlearn.com/46171/_-_-_kahani___hindi_kahaniya___bedtime_moral_stories___hindi_fairy_tales___funny_stories___new-720p_hd-720p-c5a1ELCyed.mp4" type="video/mp4">
+      </video>
+      <p>Sample Video 2</p>
+    </div>
+    <div class="video-card">
+      <video controls preload="none" poster="images/img3.jpeg">
+        <source src="https://freshlearn-vod-src.freshlearn.com/46171/_-_-_kahani___hindi_kahaniya___bedtime_moral_stories___hindi_fairy_tales___funny_stories-720p_hd-720p-WO4V962TVW.mp4" type="video/mp4">
+      </video>
+      <p>Sample Video 3</p>
+    </div>
+    <div class="video-card">
+      <video controls preload="none" poster="images/img4.jpeg">
+        <source src="https://freshlearn-vod-src.freshlearn.com/46171/vip_-_-_kahani___hindi_kahaniya___bedtime_moral_stories___hindi_fairy_tales___funny_stories-720p_hd-720p-pn4Wn2ROof.mp4" type="video/mp4">
+      </video>
+      <p>Sample Video 4</p>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="section-title">☺️ Happy <span>Customer Reviews</span></div>
+  <div class="divider"></div>
+  <div class="review-grid">
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/whatsapp_chat-2023-18-10-05-27-4-511x1024.png" alt="Customer Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/whatsapp_chat-2-2023-18-10-05-28-28-393x1024.png" alt="Customer Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/facebook_messenger_chat-2023-18-10-05-28-3-539x1024.png" alt="Customer Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/manish-mehta-youtube-viral-mastery-course-students-1024x1024.jpg" alt="Student Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/manish-mehta-youtube-viral-mastery-course-students-6-1024x1024.jpg" alt="Student Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2025/09/manish-mehta-youtube-viral-mastery-course-students-5-1024x1024.jpg" alt="Student Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2026/02/manish-mehta-youtube-viral-mastery-course-students-3-1024x1024.jpg" alt="Student Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2026/02/manish-mehta-youtube-viral-mastery-course-students-4-668x1024.jpg" alt="Student Review" loading="lazy"></div>
+    <div class="review-card"><img src="https://cartoonbundle.com/wp-content/uploads/2026/02/manish-mehta-youtube-viral-mastery-course-students-2-925x1024.jpg" alt="Student Review" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="section-title" style="max-width:720px;margin:0 auto 8px;">Frequently Asked <span>Questions</span></div>
+  <div class="divider"></div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <div class="faq-q">क्या हम इन वीडियो को अपने YouTube चैनल पर अपलोड कर सकते हैं? <span class="arrow">▼</span></div>
+      <div class="faq-a">जी बिल्कुल आप इन वीडियो को अपने YouTube चैनल पर अपलोड कर सकते हो। आपको कोई भी Copyright नहीं आएगी।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Payment के बाद हमको वीडियो कैसे मिलेगी? <span class="arrow">▼</span></div>
+      <div class="faq-a">Payment करने के बाद आपको Email पर एक Google Drive Link भेजा जाएगा, जहां से आप सारे वीडियो डाउनलोड कर सकते हो। अगर Payment के बाद आपको ईमेल नहीं मिलता है, तो कृपया हमें mail@cartoonbundle.com पर ईमेल कर दें।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">यह वीडियो हमारे पास कब तक रहेगी? <span class="arrow">▼</span></div>
+      <div class="faq-a">आपको सारी हिंदी कार्टून वीडियो Lifetime Access के साथ मिलेगी।</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">क्या इन वीडियो से हमारा YouTube Channel Monetize होगा? <span class="arrow">▼</span></div>
+      <div class="faq-a">आप इन Cartoon Hindi Story Videos को अपलोड करके अपना चैनल Grow कर सकते हो और Monetize भी कर सकते हो आसानी से।</div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:18px;font-size:0.85rem;color:var(--text-gray);">Got more questions? Please Email us at <a href="mailto:mail@cartoonbundle.com" style="color:var(--red);font-weight:700;">mail@cartoonbundle.com</a></p>
+</div>
+
+<!-- FINAL CTA -->
+<div style="background:var(--red);padding:32px 20px;text-align:center;">
+  <p style="color:white;font-family:'Baloo 2',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px;">अभी खरीदो और अपना YouTube Journey शुरू करो! 🚀</p>
+  <a href="#" class="cta-btn" style="background:var(--yellow);color:#111;box-shadow:0 4px 14px rgba(0,0,0,0.2);">Buy Now just @ ₹197/-</a>
+  <p class="cta-note" style="color:rgba(255,255,255,0.8);margin-top:8px;">* Limited-time offer. Price may change.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Cartoon Bundle – All Rights Reserved.</p>
+  <p style="margin-top:6px;"><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+  <p class="disclaimer">This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
+</footer>
+
+
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
